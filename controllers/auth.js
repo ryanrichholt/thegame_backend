@@ -2,15 +2,17 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const { User } = require("../models");
 
+// These controller methods are modified from:
+// https://github.com/kilkelly/react-passport-redux-example
+// They handle requests sent the the auth routes
+
 module.exports.login = function(req, res, next) {
-	console.log('controller.auth.login called');
 	// Do email and password validation for the server
 	passport.authenticate("local", function(err, user, info) {
 		if(err) return next(err)
 		if(!user) {
 			return res.json({ success: false, message: info.message })			
 		}
-		// ***********************************************************************
 		// "Note that when using a custom callback, it becomes the application's
 		// responsibility to establish a session (by calling req.login()) and send
 		// a response."
@@ -47,7 +49,7 @@ module.exports.register = function(req, res, next) {
 			User.create(req.body, (err) => {
 				if (err) {
 					console.error(err)
-					res.json({ success: false })
+					res.json({ success: false, message: String(err)})
 					return
 				}
 				res.json({ success: true })

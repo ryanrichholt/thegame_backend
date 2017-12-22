@@ -3,12 +3,16 @@ const router = express.Router();
 const controllers = require("../controllers")
 
 router.get('/', (req, res) => {
-    console.log('hello from api')
-    res.send('hola from api')
+    res.json({'greeting': 'hola from api'})
 });
-//router.get('/profile', (req, res) => res.send('hola from api'));
-router.get('/user', (req, res) => {
-    controllers.api.getUser(req, res);
+
+router.get('/profile', (req, res) => {
+    controllers.api.getProfile(req, res);
 });
+
+router.get('/user/:id', (req, res) => {
+    // TODO Finish this route so players can view other players profiles
+    res.json({ 'success': true, 'message': 'Not implemented yet' })
+})
 
 module.exports = router;

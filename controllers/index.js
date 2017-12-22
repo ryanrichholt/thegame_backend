@@ -1,7 +1,4 @@
-const auth = require("./auth");
-const api = require("./api");
-
 module.exports = {
-    auth: auth,
-    api: api
+    auth: require("./auth"),
+    api: require("./api")
 };
