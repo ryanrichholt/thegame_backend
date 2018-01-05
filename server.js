@@ -96,6 +96,7 @@ passport.use(local)
 app.use('/auth', routes.auth);
 app.use('/api', routes.api);
 
+console.log("Serving static files from: " + path.join(__dirname,"client/build"))
 app.use(express.static(path.join(__dirname,"client/build")));
 
 app.get("/", function(req, res) {
