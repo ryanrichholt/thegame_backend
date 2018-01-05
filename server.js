@@ -99,7 +99,7 @@ app.use('/api', routes.api);
 app.use(express.static("../client/build"));
 app.get("/", function(req, res) {
   console.log(req.url)
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 // Start the server
