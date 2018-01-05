@@ -19,7 +19,7 @@ app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({ extended: true }))
 
 const secrets = {
-  db: 'mongodb://localhost/basic_auth_server',
+  db: process.env.MONGODB_URI || "mongodb://localhost/thegamedb",
   sessionSecret: 'secret'
 }
 
