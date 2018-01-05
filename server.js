@@ -99,7 +99,7 @@ app.use('/api', routes.api);
 console.log("Serving static files from: " + path.join(__dirname,"client/build"))
 app.use(express.static(path.join(__dirname,"client/build")));
 
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
   console.log(req.url)
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
