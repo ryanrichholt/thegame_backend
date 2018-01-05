@@ -96,11 +96,11 @@ passport.use(local)
 app.use('/auth', routes.auth);
 app.use('/api', routes.api);
 
-app.use(express.static("../thegame_frontend/build"));
-app.get("*", function(req, res) {
-  console.log(req.url)
-  res.sendFile(path.join(__dirname, "../thegame_frontend/build/index.html"));
-});
+// app.use(express.static("../thegame_frontend/build"));
+// app.get("*", function(req, res) {
+//   console.log(req.url)
+//   res.sendFile(path.join(__dirname, "../thegame_frontend/build/index.html"));
+// });
 
 // Start the server
 app.listen(PORT, function() {
